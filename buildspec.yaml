@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      -aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 505076619770.dkr.ecr.ap-south-1.amazonaws.com
+  build:
+    commands:
+      docker build -t ai .
+      docker tag ai:latest 505076619770.dkr.ecr.ap-south-1.amazonaws.com/ai:latest
+  post_build:
+    commands:
+      docker push 505076619770.dkr.ecr.ap-south-1.amazonaws.com/ai:latest    
