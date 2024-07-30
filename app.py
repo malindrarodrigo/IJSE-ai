@@ -12,7 +12,7 @@ def home():
 
 if __name__ == '__main__':
     #app.run(debug=True)
-    app.run(port=80) # to change the port .
+    app.run() # to change the port .
 
 
 # make docker file
