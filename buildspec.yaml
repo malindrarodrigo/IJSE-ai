@@ -10,4 +10,8 @@ phases:
       - docker tag ai:latest 505076619770.dkr.ecr.ap-south-1.amazonaws.com/ai:latest
   post_build:
     commands:
-      - docker push 505076619770.dkr.ecr.ap-south-1.amazonaws.com/ai:latest    
+      - docker push 505076619770.dkr.ecr.ap-south-1.amazonaws.com/ai:latest
+      - echo Writing image definitions file...
+      - printf '[{"name":"mywebsite","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json   
+artifacts:
+  files: imagedefinitions.json
