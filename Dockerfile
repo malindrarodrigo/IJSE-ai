@@ -1,5 +1,5 @@
-FROM python:3.8-slim-buster
-
+#FROM python:3.8-slim-buster
+FROM public.ecr.aws/sam/build-python3.8:1.121.0-20240730174605
 #WORKDIR /python-docker
 
 COPY requirements.txt requirements.txt
